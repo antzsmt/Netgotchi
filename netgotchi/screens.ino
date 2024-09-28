@@ -291,17 +291,16 @@ void displaySettings()
   displayDisplay();
 }
 
-void displayNetgotchiStats(){
+void displayNetgotchiStats() {
   displayClearDisplay();
-  displaySetCursor(0, 0);
+  displaySetCursor(0, 5);
   displayPrintln("Netgotchi v." + String(VERSION));
-  displaySetCursor(0, 10);
-
+  displaySetCursor(0, 18);
   displayPrintln("IP:  " + currentIP.toString() );
-  displayPrintln("Uptime:" + String(seconds)+"sec");
-  if( WiFi.status() == WL_CONNECTED)displayPrintln("SSID:" + WiFi.SSID());
-
-  
+  displayPrintln();
+  if ( WiFi.status() == WL_CONNECTED)displayPrintln("SSID:" + WiFi.SSID());
+  displayPrintln();
+  displayPrintln("Uptime:" + String(seconds) + "sec");
   displayDisplay();
 }
 
