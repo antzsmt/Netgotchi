@@ -2,22 +2,24 @@
 
 
 
-void displayInit()
-{
-  //to skip if the board has not display 
-  if(hasDisplay)
-  {
+void displayInit() {
+  //to skip if the board has not display
+  if (hasDisplay) {
     //display initializer
-    if(oled_type_ssd1306){
-      if (!display.begin(2, 0x3C)) { 
-        // add "SSD1306_SWITCHCAPVCC, 0x3C" in the begin() if screen doesn't work. 
+    if (oled_type_ssd1306) {
+      // Specify SDA and SCL pins
+      Wire.begin(D6, D5);
+
+      if (!display.begin(2, 0x3C)) {
+        // Add "SSD1306_SWITCHCAPVCC, 0x3C" in the begin() if screen doesn't work.
         SerialPrintLn("SSD1306 allocation failed");
         for (;;);
       }
-    }
-    else
-    { 
-      if (!display.begin()) { 
+    } else {
+      // Specify SDA and SCL pins
+      Wire.begin(D6, D5);
+
+      if (!display.begin()) {
         SerialPrintLn("Display allocation failed");
         for (;;);
       }
