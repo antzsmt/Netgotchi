@@ -16,8 +16,6 @@ void displayInit() {
         for (;;);
       }
     } else {
-      // Specify SDA and SCL pins
-      Wire.begin(D6, D5);
 
       if (!display.begin()) {
         SerialPrintLn("Display allocation failed");
